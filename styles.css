@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.game-title, .game-status {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    background-color: #333;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.game-board::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #ffff00, #ff00ff, #00ffff, #ff00ff);
+    background-size: 400%;
+    z-index: -1;
+    border-radius: 10px;
+    animation: glowing 2s linear infinite;
+    pointer-events: none;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.cell:hover {
+    background-color: #555;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+.cell.x {
+    color: #d0ff00;
+    text-shadow: 0 0 10px #51ff00, 0 0 20px #51ff00, 0 0 30px #51ff00, 0 0 40px  #51ff00, 0 0 50px  #d0ff00, 0 0 60px  #51ff00, 0 0 70px  #51ff00;
+}
+
+.cell.o {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff, 0 0 60px #00ffff, 0 0 70px #00ffff;
+}
+
+.winning-cell {
+    background-color: #ff00ff;
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff;
+}
+
+.game-status {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
+}
+
+.restart-button {
+    background-color: #333;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.restart-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #ffff00, #ff00ff, #00ffff, #ff00ff);
+    background-size: 400%;
+    z-index: -1;
+    border-radius: 5px;
+    animation: glowing 2s linear infinite;
+    pointer-events: none;
+}
+
+.restart-button:hover::before {
+    opacity: 1;
+}
+
+.restart-button:hover {
+    background-color: #555;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+.game-mode-select {
+    background-color: #333;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.game-mode-select::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #ffff00, #ff00ff, #00ffff, #ff00ff);
+    background-size: 400%;
+    z-index: -1;
+    border-radius: 5px;
+    animation: glowing 2s linear infinite;
+    pointer-events: none;
+}
+
+.game-mode-select:hover::before {
+    opacity: 1;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
